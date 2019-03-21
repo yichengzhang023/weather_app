@@ -20,21 +20,21 @@ app.use(express.static(path.join(__dirname, '../public')))
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather',
-        name: 'ande'
+        name: 'Yicheng'
     })
 }) // route to help page
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        title: 'help',
-        name: 'yicheng'
+        title: 'Help',
+        name: 'Yicheng'
     })
 }) // route to help page
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'about',
-        name: 'andrew'
+        title: 'About',
+        name: 'Yicheng'
     })
 }) // route to help page
 
@@ -43,8 +43,12 @@ app.get('/weather', (req, res) => {
 }) // route to help page
 
 app.get('*', (req, res) => {
-    res.send('this is my 404 pages')
+    res.render('404',{
+        title:'404 Not Found',
+        name:'Yicheng'
+    })
 })
+
 app.listen(3000, () => {
     console.log('Start system!')
 })
