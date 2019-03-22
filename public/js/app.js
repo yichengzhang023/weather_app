@@ -18,6 +18,9 @@ weatherForm.addEventListener('submit', (event) => {
             if (data.error) {
                 errorMessage.textContent = data.error
             } else {
+                if (document.getElementById('noticeBox')) {
+                    document.getElementById('noticeBox').remove()
+                }
                 errorMessage.textContent = 'Weather in: ' + data.location
                 messageTwo.textContent = 'The Temperature for now is: ' + data.temperature
             }
