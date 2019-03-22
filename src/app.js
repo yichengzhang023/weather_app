@@ -1,6 +1,8 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
+const gecode = require('./utils/geoCode')
+const forecast = require('./utils/forecast')
 
 const app = express()
 
@@ -39,13 +41,49 @@ app.get('/about', (req, res) => {
 }) // route to help page
 
 app.get('/weather', (req, res) => {
-    res.send('This is a weather page')
+    if (!req.query.search) {
+        return res.send({
+            error: 'you must provide a address!'
+        })
+
+    } else {
+        gecode(req.query.search, (error, gecode) => {
+            if (error) {
+                return res.send({
+                    error
+                })
+            }
+            forecast(gecode.latitude, gecode.longtitude, (error, forecast) => {
+                if (error) {
+                    return res.send({
+                        error
+                    })
+                }
+                res.send({
+                    temperature: forecast.temperature,
+                    probability_to_rain: forecast.probability_to_rain,
+                    location: gecode.location
+                })
+            })
+        })
+    }
 }) // route to help page
 
+app.get('/products', (req, res) => {
+    if (!req.query.search) {
+        return res.send({
+            error: 'you must provide a search term'
+        })
+    }
+    res.send({
+        products: []
+    })
+})
+
 app.get('*', (req, res) => {
-    res.render('404',{
-        title:'404 Not Found',
-        name:'Yicheng'
+    res.render('404', {
+        title: '404 Not Found',
+        name: 'Yicheng'
     })
 })
 
