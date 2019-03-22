@@ -46,27 +46,30 @@ app.get('/weather', (req, res) => {
             error: 'you must provide a address!'
         })
 
-    } else {
-        gecode(req.query.search, (error, gecode) => {
+    }
+    gecode(req.query.search, (error, {
+        latitude,
+        longtitude,
+        location
+    } = {}) => {
+        if (error) {
+            return res.send({
+                error
+            })
+        }
+        forecast(latitude, longtitude, (error, forecast) => {
             if (error) {
                 return res.send({
                     error
                 })
             }
-            forecast(gecode.latitude, gecode.longtitude, (error, forecast) => {
-                if (error) {
-                    return res.send({
-                        error
-                    })
-                }
-                res.send({
-                    temperature: forecast.temperature,
-                    probability_to_rain: forecast.probability_to_rain,
-                    location: gecode.location
-                })
+            res.send({
+                temperature: forecast.temperature,
+                probability_to_rain: forecast.probability_to_rain,
+                location: location
             })
         })
-    }
+    })
 }) // route to help page
 
 app.get('/products', (req, res) => {
