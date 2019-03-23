@@ -12,15 +12,14 @@
     <div class="main-content">
         {{>header}}
         <div class="alert alert-warning alert-dismissible fade show" role="alert" id="noticeBox">
-            <strong>Notice: </strong> Please enter your location.
+            <strong>Tips: </strong> Please enter your location.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <i class="fal fa-wind-warning">Use this site to get your weather!</i>
         <form>
-            <input placeholder="Please Type Your address">
-            <button>Serach</button>
+            <input class="form-control-lg" placeholder="Type Your location" id="inputBox">
+            <button class="btn btn-primary btn-lg">Serach</button>
         </form>
         <p id="errorMessage"></p>
         <p id="weatherMessage"></p>
