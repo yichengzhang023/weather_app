@@ -3,6 +3,10 @@ const query = document.querySelector('input')
 const errorMessage = document.getElementById('errorMessage')
 const messageTwo = document.getElementById('weatherMessage')
 
+const getDate = () =>{
+    var date = new Date()
+    document.getElementById("date").innerHTML = date.toString()
+}
 
 const changeFirstLetter = (string)=>{
     return string.charAt(0).toUpperCase() + string.slice(1)

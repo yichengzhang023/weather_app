@@ -3,22 +3,44 @@
 <html>
 
 <head>
-    <title>About</title>
-    <link rel="icon" href="/img/weather.png">
-    <link rel="stylesheet" href="/css/styles.css">
+  <title>About</title>
+  <link rel="icon" href="/img/weather.png">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
-    <div class="main-content">
-        {{>header}}
-        <img class="portrait" src="/img/me.jpg">
-    </div>
+  <div class="main-content">
+    {{>header}}
+    <img class="portrait" src="/img/me.jpg">
     <div <div class="card">
       <div class="card-body">
         <h4 class="card-title">Email</h4>
         <h6 class="card-subtitle text-muted">yichengzhang023@gmail.com</h6>
       </div>
-    {{>footer}}
+    </div>
+    <br>
+    <div class="card text-center">
+      <div class="card-header">
+        Latest Information
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Seek for a Job</h5>
+      </div>
+      <div class="card-footer text-muted" id="date">
+      </div>
+    </div>
+  </div>
+
+
+  {{>footer}}
+  <script>
+
+    const getDate = () => {
+      var date = new Date()
+      document.getElementById("date").innerHTML = date.toDateString()
+    }
+    getDate()
+  </script>
 </body>
 
 </html>
