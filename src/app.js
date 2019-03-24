@@ -3,6 +3,7 @@ const express = require('express')
 const hbs = require('hbs')
 const gecode = require('./utils/geoCode')
 const forecast = require('./utils/forecast')
+var body_parser = require('body-parser')
 
 const app = express()
 const port = process.env.PORT || 3000

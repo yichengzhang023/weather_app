@@ -11,9 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "hbs": "^4.0.1",
-    "request": "^2.88.0",
-    "body-parser":"*"
+    "hbs": "^4.0.3",
+    "request": "^2.88.0"
   }
 }
