@@ -72,7 +72,11 @@ app.get('/weather', (req, res) => {
             res.send({
                 temperature: forecast.temperature,
                 probability_to_rain: forecast.probability_to_rain,
-                location: location
+                location: location,
+                summary: forecast.summary,
+                icon: forecast.icon,
+                humidity: forecast.humidity,
+                uvIndex: forecast.uvIndex,
             })
         })
     })

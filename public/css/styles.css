@@ -55,3 +55,23 @@ header a {
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
+#weatherDetail{
+    max-width: 450px;
+}
+
+.table th, .table td {
+    text-align: center;
+}
+
+#detail{
+    visibility: hidden;
+}
+
+p#uv {
+    background-color: rgba(30, 214, 14, 0.719);
+    width: 40px;
+    color: white;
+    margin: auto;
+    border-radius: 5px;
+}

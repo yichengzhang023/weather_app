@@ -3,31 +3,74 @@
 <html>
 
 <head>
-    <title>Weather</title>
-    <link rel="icon" href="/img/weather.png">
-    <link rel="stylesheet" href="/css/styles.css">
+  <title>Weather</title>
+  <link rel="icon" href="/img/weather.png">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
-    <div class="main-content">
-        {{>header}}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert" id="noticeBox">
-            <strong>Tips: </strong> Please enter your location.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <form>
-            <input class="form-control-lg" placeholder="Type Your location" id="inputBox">
-            <button class="btn btn-primary btn-lg">Serach</button>
-        </form>
-        <p id="errorMessage"></p>
-        <p id="weatherMessage"></p>
+  <div class="main-content">
+    {{>header}}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="noticeBox">
+      <strong>Tips: </strong> Please enter your location.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
+    <form>
+      <input class="form-control-lg" placeholder="Type Your location" id="inputBox">
+      <button class="btn btn-primary btn-lg">Serach</button>
+    </form>
+    <br>
+    <h3 id="errorMessage"></h3>
+    <h4 id="weatherMessage"></h4>
+    <p>
+      <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#weatherDetail"
+        aria-expanded="false" aria-controls="collapseExample" id="detail">
+        Show Details
+      </button>
+    </p>
+    <div class="collapse" id="weatherDetail">
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Location</td>
+            <td>
+              <p id="loc"></p>
+            </td>
+          </tr>
+          <tr>
+            <td>UV index</td>
+            <td>
+              <p id="uv"></p>
+            </td>
+          </tr>
+          <tr>
+            <td>Icon</td>
+            <td>
+              <p id="icon"></p>
+            </td>
+          </tr>
+          <tr>
+            <td>Humidity</td>
+            <td>
+              <p id="hum"></p>
+            </td>
+          </tr>
+          <tr>
+            <td>Chance of Rain</td>
+            <td>
+              <p id="rain"></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-    {{>footer}}
+  {{>footer}}
 
-    <script src="/js/app.js"></script>
+  <script src="/js/app.js"></script>
 </body>
 
 </html>
